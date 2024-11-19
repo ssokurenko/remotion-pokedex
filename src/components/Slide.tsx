@@ -1,6 +1,14 @@
 import { z } from "zod";
 import { zColor } from "@remotion/zod-types";
-import { AbsoluteFill, interpolate, useCurrentFrame, Easing } from "remotion";
+import {
+  Audio,
+  AbsoluteFill,
+  interpolate,
+  useCurrentFrame,
+  Easing,
+  staticFile,
+  useVideoConfig,
+} from "remotion";
 
 const slidePropsSchema = z.object({
   backgroundColor: zColor().optional(),
@@ -14,6 +22,7 @@ export const Slide: React.FC<z.infer<typeof slidePropsSchema>> = ({
   children,
 }) => {
   const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
 
   const animationDuration = 0.5 * 30;
 
@@ -35,6 +44,11 @@ export const Slide: React.FC<z.infer<typeof slidePropsSchema>> = ({
 
   return (
     <AbsoluteFill style={{ padding: 80 }}>
+      <Audio
+        src={staticFile('swoosh.mp3')}// Replace with the actual path to your sound file
+        volume={0.08}
+        startFrom={0.15 * fps}
+      />
       <div
         style={{
           transform: `translateX(${translateX}px)`,
