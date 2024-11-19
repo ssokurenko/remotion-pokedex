@@ -2,13 +2,12 @@ import React from "react";
 import { spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { fontFamily } from "../config";
 
-const title: React.CSSProperties = {
+const headerStyle: React.CSSProperties = {
   fontFamily,
   fontWeight: "bold",
-  fontSize: 100,
+  fontSize: 140,
   textAlign: "center",
   position: "absolute",
-  bottom: 160,
   width: "100%",
 };
 
@@ -21,14 +20,16 @@ const word: React.CSSProperties = {
 export const Title: React.FC<{
   readonly titleText: string;
   readonly titleColor: string;
-}> = ({ titleText, titleColor }) => {
+  readonly top?: string;
+  readonly opacity?: number;
+}> = ({ titleText, titleColor, top = "40%", opacity = 1 }) => {
   const videoConfig = useVideoConfig();
   const frame = useCurrentFrame();
 
   const words = titleText.split(" ");
 
   return (
-    <h1 style={title}>
+    <h1 style={{ ...headerStyle, top, opacity}}>
       {words.map((t, i) => {
         const delay = i * 5;
 

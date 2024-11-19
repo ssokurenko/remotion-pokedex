@@ -1,25 +1,33 @@
-import './tailwind.css';
+import "./tailwind.css";
 import { Composition } from "remotion";
-import { Intro, myCompSchema } from "./Intro";
 
-import { fps, width, height, introDurationInFrames } from './config';
+import {
+  fps,
+  width,
+  height,
+  introDurationInFrames,
+  slideDuration,
+  title,
+  totalCount,
+} from "./config";
+import { SlideShow, slideshowSchema } from "./components/SlideShow";
 
 export const RemotionRoot: React.FC = () => {
+  const totalDuration = introDurationInFrames + slideDuration * totalCount;
   return (
-    <>
-      <Composition
-        id="Intro"
-        component={Intro}
-        durationInFrames={introDurationInFrames}
-        fps={fps}
-        width={width}
-        height={height}
-        schema={myCompSchema}
-        defaultProps={{
-          titleText: "Remotion Pokedex",
-          titleColor: "#000000",
-        }}
-      />
-    </>
+    <Composition
+      id="SlideShow"
+      component={SlideShow}
+      durationInFrames={totalDuration}
+      fps={fps}
+      width={width}
+      height={height}
+      schema={slideshowSchema}
+      defaultProps={{
+        titleText: title,
+        slideDuration,
+        totalCount,
+      }}
+    />
   );
 };
