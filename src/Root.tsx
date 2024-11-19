@@ -3,8 +3,6 @@ import { Composition } from "remotion";
 
 import {
   fps,
-  width,
-  height,
   introDurationInFrames,
   slideDuration,
   title,
@@ -20,8 +18,8 @@ export const RemotionRoot: React.FC = () => {
       component={SlideShow}
       durationInFrames={totalDuration}
       fps={fps}
-      width={width}
-      height={height}
+      width={1920}
+      height={1080}
       schema={slideshowSchema}
       defaultProps={{
         titleText: title,

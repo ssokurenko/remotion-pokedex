@@ -1,9 +1,8 @@
 import React from "react";
 import { spring, useCurrentFrame, useVideoConfig } from "remotion";
-import { fontFamily } from "../config";
 
 const headerStyle: React.CSSProperties = {
-  fontFamily,
+  fontFamily: 'Helvetica, Arial, sans-serif',
   fontWeight: "bold",
   fontSize: 140,
   textAlign: "center",

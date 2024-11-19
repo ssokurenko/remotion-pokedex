@@ -37,22 +37,20 @@ export const Pokemon: React.FC<Props> = ({ id, name, imageUrl }) => {
         height: "100%",
       }}
     >
-      {/* Left Half: Pokemon Image with Fade-in */}
       {imageUrl && (
         <Img
           src={imageUrl}
           style={{
-            width: "50%", // Takes up left half of the container
+            width: "50%",
             height: "auto",
             objectFit: "cover",
             marginLeft: "1rem",
-            opacity: fadeInOpacity, // Apply fade-in opacity based on the frame
-            transition: "opacity 0.5s ease", // Smooth transition for the opacity
+            opacity: fadeInOpacity,
+            transition: 'opacity 0.5s ease-in-out',
           }}
         />
       )}
 
-      {/* Right Half: ID and Name */}
       <div
         style={{
           display: "flex",
@@ -73,7 +71,6 @@ export const Pokemon: React.FC<Props> = ({ id, name, imageUrl }) => {
         >
           {formatToFourDigits(id)}
         </h1>
-        {/* Capitalized Name with Bangers font and rainbow animation */}
         <h1
           style={{
             fontSize: name?.length > 9 ? "9rem" : "10rem",
