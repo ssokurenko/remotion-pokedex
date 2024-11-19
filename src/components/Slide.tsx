@@ -45,8 +45,8 @@ export const Slide: React.FC<z.infer<typeof slidePropsSchema>> = ({
   return (
     <AbsoluteFill style={{ padding: 80 }}>
       <Audio
-        src={staticFile('swoosh.mp3')}// Replace with the actual path to your sound file
-        volume={0.08}
+        src={staticFile("swoosh.mp3")}
+        volume={0.04}
         startFrom={0.15 * fps}
       />
       <div

@@ -9,7 +9,9 @@ import {
   apiEndpoint,
   profileImageBaseUrl,
   profileImageExtension,
+  ytHandle,
 } from "../config";
+import { Watermark } from "./Watermark";
 
 export const slideshowSchema = z.object({
   titleText: z
@@ -45,10 +47,15 @@ export const SlideShow: React.FC<SlideshowProps> = ({
   const { data: pokemons } = useGet(`${apiEndpoint}?limit=${totalCount}`);
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "white" }}>
+    <AbsoluteFill style={{ backgroundColor: "#FFF" }}>
       <AbsoluteFill>
         <Sequence name="Background">
           <Background preset="ocean" speedSeconds={10 * fps} />
+        </Sequence>
+        <Sequence name="Watermark" from={titleDuration}>
+          <AbsoluteFill>
+            <Watermark text={ytHandle} opacity={0.1} />
+          </AbsoluteFill>
         </Sequence>
 
         <Sequence name="Title" durationInFrames={titleDuration}>
@@ -58,8 +65,8 @@ export const SlideShow: React.FC<SlideshowProps> = ({
         <Sequence name="SubTitle" from={fps} durationInFrames={titleDuration}>
           <Title
             titleText={`${totalCount} Characters`}
-            titleColor="#000"
-            opacity={0.5}
+            titleColor="#FFF"
+            opacity={0.9}
             top="55%"
           />
         </Sequence>
