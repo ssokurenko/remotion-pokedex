@@ -12,6 +12,6 @@ export const profileImageExtension = ".png";
 
 export const apiEndpoint = "https://pokeapi.co/api/v2/pokemon";
 
-export const totalCount = 1025;
+export const totalCount = 10;
 export const slideDuration = 4 * fps;
 export const ytHandle = "@ssokurenko";

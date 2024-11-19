@@ -24,7 +24,7 @@ export const Pokemon: React.FC<Props> = ({ id, name, imageUrl }) => {
     backgroundSize: "400% 400%",
     color: "transparent", // Make the text color transparent to show gradient
     backgroundClip: "text", // Clip the background gradient to the text
-    animation: `rainbow ${30 * fps}s ease infinite`, // Rainbow animation
+    animation: `rainbow ${40 * fps}s ease infinite`, // Rainbow animation
   };
 
   return (

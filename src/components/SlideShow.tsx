@@ -1,5 +1,11 @@
 import { z } from "zod";
-import { AbsoluteFill, Sequence, useVideoConfig } from "remotion";
+import {
+  Audio,
+  AbsoluteFill,
+  Sequence,
+  useVideoConfig,
+  staticFile,
+} from "remotion";
 import { Slide } from "./Slide";
 import { Title } from "./Title";
 import { Background } from "./Background";
@@ -48,6 +54,11 @@ export const SlideShow: React.FC<SlideshowProps> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#FFF" }}>
+      <Audio
+        loop
+        src={staticFile("soundtrack.mp3")}
+        volume={0.9}
+      />
       <AbsoluteFill>
         <Sequence name="Background">
           <Background preset="ocean" speedSeconds={10 * fps} />
